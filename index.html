@@ -47,7 +47,25 @@
             const row = button.parentNode;
             row.parentNode.removeChild(row);
         }
+        function setDynamicBackground() {
+            const today = new Date();
+            const month = today.getMonth() + 1; // Months are zero-based
+            const day = today.getDate();
+            const body = document.body;
 
+            if (month === 12 && day === 25) { // Christmas
+                body.style.background = "url('https://i.pinimg.com/originals/a2/e7/0e/a2e70ee9920b35d55f9fc6d4b5af21aa.gif')";
+                body.style.backgroundSize = "cover";
+            } else if (month === 1 && day === 1) { // New Year
+                body.style.background = "url('https://example.com/newyear.gif') no-repeat center center fixed";
+                body.style.backgroundSize = "cover";
+            } else {
+                body.style.background = "url('https://example.com/default-bg.jpg') no-repeat center center fixed";
+                body.style.backgroundSize = "cover";
+            }
+        }
+
+        window.onload = setDynamicBackground;
         function getRandomMessage(sgpa) {
             const messages = {
                 9: ["😱🌸 Oo Bhai! Itna kaun padhta hai re... 🌸😱", "😲🌺 Tum toh legend nikle, genius! 🌺😲", "🤯🌸 Tumhare dimaag mein NASA ka processor hai kya? 🌸🤯"],
